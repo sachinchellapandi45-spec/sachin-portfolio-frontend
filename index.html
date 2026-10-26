@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>C. Sachin — Java Full Stack Developer</title>
+  <meta name="description" content="C. Sachin — Java Full Stack Developer. Passionate about building scalable web applications. Available for hire." />
+  <meta name="keywords" content="Java Full Stack Developer, React, Spring Boot, Web Developer, Portfolio, C. Sachin" />
+  <meta name="author" content="C. Sachin" />
+  <meta property="og:title" content="C. Sachin — Java Full Stack Developer" />
+  <meta property="og:description" content="Passionate Java Full Stack Developer. Open to Work. Available Immediately." />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div id="loader" class="loader">
+    <div class="loader-content">
+      <div class="loader-initials">CS</div>
+      <div class="loader-bar"><div class="loader-fill"></div></div>
+      <div class="loader-text">Initializing Portfolio...</div>
+    </div>
+  </div>
+
+  <!-- Custom Cursor -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- Scroll Progress -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Particle Canvas -->
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- Mouse Glow -->
+  <div class="mouse-glow" id="mouseGlow"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">
+        <span class="logo-bracket">&lt;</span>CS<span class="logo-bracket">/&gt;</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-link active" data-section="home">Home</a></li>
+        <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+        <li><a href="#experience" class="nav-link" data-section="experience">Experience</a></li>
+        <li><a href="#skills" class="nav-link" data-section="skills">Skills</a></li>
+        <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+        <li><a href="#education" class="nav-link" data-section="education">Education</a></li>
+        <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="#contact" class="nav-hire-btn magnetic-btn">
+          <span>Hire Me</span>
+        </a>
+        <button class="nav-admin-btn" id="adminLoginBtn" title="Admin Login" aria-label="Admin Login">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <span>Admin</span>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section id="home" class="hero-section">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-container">
+      <div class="hero-left">
+        <div class="hero-badge reveal-fade">
+          <span class="badge-dot"></span>
+          Available for Hire
+        </div>
+        <h1 class="hero-name reveal-up">C. Sachin</h1>
+        <div class="hero-title-wrapper reveal-up" style="animation-delay:0.2s">
+          <span class="hero-title-static">Java Full Stack Developer</span>
+        </div>
+        <div class="hero-typing reveal-up" style="animation-delay:0.3s">
+          <span class="typing-prefix">I am a </span>
+          <span class="typing-text" id="typingText"></span>
+          <span class="typing-cursor">|</span>
+        </div>
+        <p class="hero-desc reveal-up" style="animation-delay:0.4s">
+          Passionate about building scalable, modern web applications using Java, Spring Boot & React. Ready to turn ideas into impactful digital experiences.
+        </p>
+        <div class="hero-buttons reveal-up" style="animation-delay:0.5s">
+          <a href="#contact" class="btn-primary magnetic-btn">
+            <span class="btn-icon">✉</span> Contact Me
+          </a>
+          <a href="#" class="btn-secondary magnetic-btn" id="downloadResume">
+            <span class="btn-icon">↓</span> Download Resume
+          </a>
+          <a href="#skills" class="btn-outline magnetic-btn">
+            <span class="btn-icon">⚡</span> View Skills
+          </a>
+        </div>
+        <div class="hero-socials reveal-up" style="animation-delay:0.6s">
+          <a href="mailto:sachinchellapandi45@gmail.com" class="social-link" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </a>
+          <a href="https://github.com/sachinchellapandi45-spec" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          </a>
+          <a href="https://linkedin.com/in/sachinchellapandi" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="hero-right reveal-fade">
+        <div class="hero-scene">
+          <!-- Profile ring orbit -->
+          <div class="profile-wrapper">
+            <div class="orbit-ring orbit-1">
+              <div class="orbit-icon" style="--angle:0deg">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" />
+              </div>
+              <div class="orbit-icon" style="--angle:90deg">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="Spring" />
+              </div>
+              <div class="orbit-icon" style="--angle:180deg">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" />
+              </div>
+              <div class="orbit-icon" style="--angle:270deg">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" />
+              </div>
+            </div>
+            <div class="orbit-ring orbit-2">
+              <div class="orbit-icon" style="--angle:45deg">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" />
+              </div>
+              <div class="orbit-icon" style="--angle:225deg">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" />
+              </div>
+            </div>
+            <div class="profile-photo-container">
+              <div class="profile-photo-ring"></div>
+              <div class="profile-photo-glow"></div>
+              <div class="profile-photo" id="profilePhoto">
+                <div class="profile-initials">CS</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Floating 3D Cards -->
+          <div class="floating-card card-1">
+            <div class="float-card-icon">☕</div>
+            <div class="float-card-label">Java Dev</div>
+          </div>
+          <div class="floating-card card-2">
+            <div class="float-card-icon">⚛</div>
+            <div class="float-card-label">React</div>
+          </div>
+          <div class="floating-card card-3">
+            <div class="float-card-icon">🗄</div>
+            <div class="float-card-label">Spring Boot</div>
+          </div>
+          <div class="floating-card card-4">
+            <div class="float-card-icon">✅</div>
+            <div class="float-card-label">Open to Work</div>
+          </div>
+
+          <!-- Glowing Cubes -->
+          <div class="glow-cube cube-1"></div>
+          <div class="glow-cube cube-2"></div>
+          <div class="glow-cube cube-3"></div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <div class="scroll-mouse">
+        <div class="scroll-wheel"></div>
+      </div>
+      <span>Scroll Down</span>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT SECTION ===== -->
+  <section id="about" class="section about-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Who Am I</span>
+        <h2 class="section-title">About <span class="gradient-text">Me</span></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="about-grid">
+        <div class="about-left reveal-left">
+          <div class="about-photo-wrapper">
+            <div class="about-photo-bg"></div>
+            <div class="about-photo-card">
+              <div class="about-photo-initials">CS</div>
+              <div class="about-photo-label">
+                <span class="about-role">Java Full Stack Dev</span>
+                <span class="about-status">
+                  <span class="status-dot"></span> Available Now
+                </span>
+              </div>
+            </div>
+            <div class="about-glowing-border"></div>
+          </div>
+        </div>
+        <div class="about-right reveal-right">
+          <h3 class="about-heading">Passionate Developer, <br /><span class="gradient-text">Ready to Build</span></h3>
+          <p class="about-text">
+            I am <strong>C. Sachin</strong>, a passionate Java Full Stack Developer and a recent BE Computer Science Engineering graduate (2026). I have a strong interest in building scalable web applications using modern technologies.
+          </p>
+          <p class="about-text">
+            I enjoy solving real-world problems, learning new technologies, and creating responsive, user-friendly web applications. I am actively seeking my first professional opportunity where I can contribute, grow under experienced mentorship, and become a valuable member of a collaborative development team.
+          </p>
+          <p class="about-text">
+            Although I am a fresher, I bring strong technical fundamentals, continuous learning, dedication, and the motivation to build impactful software solutions.
+          </p>
+          <div class="about-counters">
+            <div class="counter-card">
+              <div class="counter-icon">☕</div>
+              <div class="counter-value" data-count="90">0</div>
+              <div class="counter-label">Java Learning</div>
+            </div>
+            <div class="counter-card">
+              <div class="counter-icon">🌐</div>
+              <div class="counter-value" data-count="85">0</div>
+              <div class="counter-label">Full Stack Skills</div>
+            </div>
+            <div class="counter-card">
+              <div class="counter-icon">🧩</div>
+              <div class="counter-value" data-count="80">0</div>
+              <div class="counter-label">Problem Solving</div>
+            </div>
+            <div class="counter-card">
+              <div class="counter-icon">🚀</div>
+              <div class="counter-value" data-count="100">0</div>
+              <div class="counter-label">Ready to Work</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EXPERIENCE SECTION ===== -->
+  <section id="experience" class="section experience-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">My Journey</span>
+        <h2 class="section-title">Work <span class="gradient-text">Experience</span></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="exp-grid">
+        <div class="exp-card reveal-up">
+          <div class="exp-card-header">
+            <div class="exp-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="7" width="20" height="14" rx="2"/>
+                <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
+                <line x1="12" y1="12" x2="12" y2="16"/>
+                <line x1="10" y1="14" x2="14" y2="14"/>
+              </svg>
+            </div>
+            <div class="exp-meta">
+              <h3 class="exp-title">Passionate Junior Full Stack Developer</h3>
+              <span class="exp-company">Self-Motivated / Open to Opportunities</span>
+            </div>
+          </div>
+          <p class="exp-desc">
+            I am at the beginning of my professional career with strong knowledge of Java Full Stack Development. My technical foundation includes Java, Spring Boot, React, HTML, CSS, JavaScript, and MySQL.
+          </p>
+          <p class="exp-desc">
+            I enjoy solving problems, continuously learning, and developing modern web applications. I am currently seeking my first professional role where I can apply my knowledge, gain real-world experience, and contribute to meaningful projects while growing as a software engineer.
+          </p>
+          <div class="exp-badges">
+            <span class="exp-badge badge-blue">Fresher</span>
+            <span class="exp-badge badge-green">Open to Work</span>
+            <span class="exp-badge badge-purple">Available Immediately</span>
+          </div>
+          <div class="exp-tech-stack">
+            <span class="tech-tag">Java</span>
+            <span class="tech-tag">Spring Boot</span>
+            <span class="tech-tag">React JS</span>
+            <span class="tech-tag">MySQL</span>
+            <span class="tech-tag">HTML5</span>
+            <span class="tech-tag">CSS3</span>
+            <span class="tech-tag">JavaScript</span>
+          </div>
+        </div>
+        <div class="exp-side reveal-up" style="animation-delay:0.2s">
+          <div class="exp-info-card">
+            <div class="exp-info-item">
+              <div class="exp-info-icon">📅</div>
+              <div>
+                <div class="exp-info-label">Status</div>
+                <div class="exp-info-value">Fresher 2026</div>
+              </div>
+            </div>
+            <div class="exp-info-item">
+              <div class="exp-info-icon">🌟</div>
+              <div>
+                <div class="exp-info-label">Availability</div>
+                <div class="exp-info-value">Immediate</div>
+              </div>
+            </div>
+            <div class="exp-info-item">
+              <div class="exp-info-icon">🎯</div>
+              <div>
+                <div class="exp-info-label">Looking For</div>
+                <div class="exp-info-value">Full Stack Role</div>
+              </div>
+            </div>
+            <div class="exp-info-item">
+              <div class="exp-info-icon">📍</div>
+              <div>
+                <div class="exp-info-label">Mode</div>
+                <div class="exp-info-value">Remote / On-site</div>
+              </div>
+            </div>
+          </div>
+          <div class="exp-cta-card">
+            <div class="exp-cta-title">Ready to Contribute</div>
+            <div class="exp-cta-subtitle">Strong fundamentals, eager to learn, and motivated to build impactful solutions.</div>
+            <a href="#contact" class="btn-primary magnetic-btn" style="width:100%;justify-content:center;margin-top:1rem;">
+              <span>Let's Connect</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SKILLS SECTION ===== -->
+  <section id="skills" class="section skills-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">What I Know</span>
+        <h2 class="section-title">My <span class="gradient-text">Skills</span></h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="skills-categories" id="skillsContainer">
+        <!-- Languages -->
+        <div class="skill-category reveal-up">
+          <div class="skill-cat-header">
+            <span class="skill-cat-icon">🔤</span>
+            <h3>Languages</h3>
+          </div>
+          <div class="skills-grid">
+            <div class="skill-card" data-skill="90">
+              <div class="skill-icon-wrap">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" />
+              </div>
+              <div class="skill-info">
+                <div class="skill-name">Java</div>
+                <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+                <div class="skill-percent">90%</div>
+              </div>
+            </div>
+            <div class="skill-card" data-skill="85">
+              <div class="skill-icon-wrap">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" />
+              </div>
+              <div class="skill-info">
+                <div class="skill-name">JavaScript</div>
+                <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+                <div class="skill-percent">85%</div>
+              </div>
+            </div>
+            <div class="skill-card" data-skill="90">
+              <div class="skill-icon-wrap">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" />
+              </div>
+              <div class="skill-info">
+                <div class="skill-name">HTML5</div>
+                <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+                <div class="skill-percent">90%</div>
+              </div>
+            </div>
+            <div class="skill-card" data-skill="85">
+              <div class="skill-icon-wrap">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" />
+              </div>
+              <div class="skill-info">
+                <div class="skill-name">CSS3</div>
+                <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+                <div class="skill-percent">85%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Frontend -->
+        <div class="skill-category reveal-up" style="animation-delay:0.1s">
+          <div class="skill-cat-header">
+            <span class="skill-cat-icon">🎨</span>
+            <h3>Frontend</h3>
+          </div>
+          <div class="skills-grid">
+            <div class="skill-card" data-skill="80">
+              <div class="skill-icon-wrap">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" />
+              </div>
+              <div class="skill-info">
+                <div class="skill-name">React JS</div>
+                <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+                <div class="skill-percent">80%</div>
+              </div>
+            </div>
+            <div class="skill-card" data-skill="90">
+              <div class="skill-icon-wrap">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" />
+              </div>
+              <div class="skill-info">
+                <div class="skill-name">HTML</div>
+                <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+                <div class="skill-percent">90%</div>
+              </div>
+            </div>
+            <div class="skill-card" data-skill="85">
+              <div class="skill-icon-wrap">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" />
+              </div>
+              <div class="skill-info">
+                <div class="skill-name">CSS</div>
+                <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+                <div class="skill-percent">85%</div>
+              </div>
+            </div>
+            <div class="skill-card" data-skill="85">
+              <div class="skill-icon-wrap">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" />
+              </div>
+              <div class="skill-info">
+                <div class="skill-name">JavaScript</div>
+                <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+                <div class="skill-percent">85%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Backend & Database -->
+        <div class="skill-category reveal-up" style="animation-delay:0.2s">
+          <div class="skill-cat-header">
+            <span class="skill-cat-icon">⚙️</span>
+            <h3>Backend</h3>
+          </div>
+          <div class="skills-grid">
+            <div class="skill-card" data-skill="90">
+              <div class="skill-icon-wrap">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" />
+              </div>
+              <div class="skill-info">
+                <div class="skill-name">Java</div>
+                <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+                <div class="skill-percent">90%</div>
+              </div>
+            </div>
+            <div class="skill-card" data-skill="80">
+              <div class="skill-icon-wrap">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="Spring Boot" />
+              </div>
+              <div class="skill-info">
+                <div class="skill-name">Spring Boot</div>
+                <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+                <div class="skill-percent">80%</div>
+              </div>
+            </div>
+          </div>
+          <div class="skill-cat-header" style="margin-top:2rem">
+            <span class="skill-cat-icon">🗄️</span>
+            <h3>Database</h3>
+          </div>
+          <div class="skills-grid">
+            <div class="skill-card" data-skill="80">
+              <div class="skill-icon-wrap">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" />
+              </div>
+              <div class="skill-info">
+                <div class="skill-name">MySQL</div>
+                <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+                <div class="skill-percent">80%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS SECTION ===== -->
+  <section id="projects" class="section projects-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">My Work</span>
+        <h2 class="section-title">My <span class="gradient-text">Projects</span></h2>
+        <div class="section-line"></div>
+      </div>
+      <div id="projectsGrid" class="projects-grid" style="display:none;"></div>
+      <div class="projects-coming-soon reveal-up" id="projectsComingSoon">
+        <div class="cs-glow-ring"></div>
+        <div class="cs-icon">
+          <div class="cs-icon-inner">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="60" height="60">
+              <path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+            </svg>
+          </div>
+        </div>
+        <h3 class="cs-title">Coming Soon</h3>
+        <p class="cs-desc">
+          I am actively working on exciting projects using the <span class="gradient-text">Java Full Stack</span> tech stack. Stay tuned for upcoming projects that will showcase my skills and creativity.
+        </p>
+        <div class="cs-tags">
+          <span class="cs-tag">Java</span>
+          <span class="cs-tag">Spring Boot</span>
+          <span class="cs-tag">React JS</span>
+          <span class="cs-tag">MySQL</span>
+          <span class="cs-tag">REST API</span>
+        </div>
+        <div class="cs-placeholder-grid">
+          <div class="cs-placeholder">
+            <div class="cs-ph-shimmer"></div>
+            <div class="cs-ph-label">Project #1</div>
+            <div class="cs-ph-tag">Java Full Stack</div>
+            <div class="cs-ph-status">🔧 In Development</div>
+          </div>
+          <div class="cs-placeholder">
+            <div class="cs-ph-shimmer"></div>
+            <div class="cs-ph-label">Project #2</div>
+            <div class="cs-ph-tag">Spring Boot + React</div>
+            <div class="cs-ph-status">📐 Planning Phase</div>
+          </div>
+          <div class="cs-placeholder">
+            <div class="cs-ph-shimmer"></div>
+            <div class="cs-ph-label">Project #3</div>
+            <div class="cs-ph-tag">Full Stack App</div>
+            <div class="cs-ph-status">💡 Ideation Stage</div>
+          </div>
+        </div>
+        <a href="mailto:sachinchellapandi45@gmail.com" class="btn-primary magnetic-btn" style="margin-top:2.5rem;">
+          <span>🔔 Notify When Live</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EDUCATION SECTION ===== -->
+  <section id="education" class="section education-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Academic Background</span>
+        <h2 class="section-title">My <span class="gradient-text">Education</span></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="education-timeline reveal-up">
+        <div class="timeline-line"></div>
+        <div class="timeline-item">
+          <div class="timeline-dot">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="timeline-dot-icon">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+              <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+            </svg>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <div class="timeline-year-badge">2026</div>
+              <div class="timeline-status">
+                <span class="status-dot"></span> Completed
+              </div>
+            </div>
+            <h3 class="timeline-degree">BE Computer Science Engineering</h3>
+            <p class="timeline-school">Bachelor of Engineering · Computer Science & Engineering</p>
+            <div class="timeline-details">
+              <div class="timeline-detail-item">
+                <span class="detail-icon">🎓</span>
+                <span>Graduation Year: 2026</span>
+              </div>
+              <div class="timeline-detail-item">
+                <span class="detail-icon">💻</span>
+                <span>Specialization: Full Stack Development</span>
+              </div>
+              <div class="timeline-detail-item">
+                <span class="detail-icon">🏆</span>
+                <span>Core Skills: Java, Data Structures, Web Dev</span>
+              </div>
+            </div>
+            <div class="timeline-tags">
+              <span class="timeline-tag">Computer Science</span>
+              <span class="timeline-tag">Engineering</span>
+              <span class="timeline-tag">2026 Graduate</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT SECTION ===== -->
+  <section id="contact" class="section contact-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Get In Touch</span>
+        <h2 class="section-title">Let's Work <span class="gradient-text">Together</span></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-left reveal-left">
+          <div class="contact-card">
+            <div class="contact-card-glow"></div>
+            <div class="contact-card-icon">✉</div>
+            <h3 class="contact-card-title">Send an Email</h3>
+            <p class="contact-card-email">sachinchellapandi45@gmail.com</p>
+            <div class="contact-card-buttons">
+              <a href="mailto:sachinchellapandi45@gmail.com" class="btn-primary magnetic-btn">
+                <span>✉ Email Me</span>
+              </a>
+              <a href="mailto:sachinchellapandi45@gmail.com?subject=Job Opportunity for C. Sachin" class="btn-secondary magnetic-btn">
+                <span>💼 Hire Me</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="contact-right reveal-right">
+          <div class="contact-info-grid">
+            <div class="contact-info-card">
+              <div class="ci-icon">📧</div>
+              <div class="ci-label">Email</div>
+              <a href="mailto:sachinchellapandi45@gmail.com" class="ci-value">sachinchellapandi45@gmail.com</a>
+            </div>
+            <div class="contact-info-card">
+              <div class="ci-icon">🌐</div>
+              <div class="ci-label">Status</div>
+              <div class="ci-value" style="color:#10f59e">
+                <span class="status-dot"></span> Open to Work
+              </div>
+            </div>
+            <div class="contact-info-card">
+              <div class="ci-icon">🐙</div>
+              <div class="ci-label">GitHub</div>
+              <a href="https://github.com/sachinchellapandi45-spec" target="_blank" rel="noopener noreferrer" class="ci-value" style="color:var(--neon-cyan);font-size:0.78rem;">sachinchellapandi45-spec</a>
+            </div>
+            <div class="contact-info-card">
+              <div class="ci-icon">📍</div>
+              <div class="ci-label">Availability</div>
+              <div class="ci-value">Immediate</div>
+            </div>
+          </div>
+          <div class="contact-message-box reveal-up">
+            <h3>Quick Message</h3>
+            <form class="contact-form" id="contactForm">
+              <div class="form-group">
+                <input type="text" id="formName" placeholder="Your Name" class="form-input" required />
+              </div>
+              <div class="form-group">
+                <input type="email" id="formEmail" placeholder="Your Email" class="form-input" required />
+              </div>
+              <div class="form-group">
+                <textarea id="formMessage" placeholder="Your Message" class="form-input form-textarea" rows="4" required></textarea>
+              </div>
+              <button type="submit" class="btn-primary magnetic-btn" style="width:100%;justify-content:center;" id="contactSubmitBtn">
+                <span>Send Message 🚀</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-glow"></div>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <span class="logo-bracket">&lt;</span>CS<span class="logo-bracket">/&gt;</span>
+        </div>
+        <div class="footer-text">
+          <p>Designed and Developed by <strong>C. Sachin</strong></p>
+          <p class="footer-role">Java Full Stack Developer</p>
+        </div>
+        <div class="footer-copy">
+          © 2026 All Rights Reserved
+        </div>
+        <div class="footer-visitor-counter" title="Live Visitor Stats from Backend">
+          <span class="live-dot"></span>
+          <span><strong id="visitorCount">—</strong> Views</span>
+          <span class="counter-sep">•</span>
+          <span><strong id="visitorToday">—</strong> Today</span>
+        </div>
+      </div>
+      <div class="footer-line"></div>
+      <div class="footer-bottom">
+        <span>Built with ❤️ using HTML, CSS & JavaScript</span>
+        <div class="footer-socials">
+          <a href="mailto:sachinchellapandi45@gmail.com" class="footer-social" aria-label="Email">✉</a>
+          <a href="https://github.com/sachinchellapandi45-spec" target="_blank" rel="noopener noreferrer" class="footer-social" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <polyline points="18 15 12 9 6 15"/>
+    </svg>
+  </button>
+
+  <!-- ===== ADMIN LOGIN MODAL ===== -->
+  <div class="admin-modal-overlay" id="adminModalOverlay" role="dialog" aria-modal="true" aria-label="Admin Login">
+    <div class="admin-modal">
+      <!-- Close -->
+      <button class="admin-modal-close" id="adminModalClose" aria-label="Close">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+
+      <!-- Logo -->
+      <div class="admin-modal-logo">
+        <div class="admin-modal-icon">CS</div>
+        <h2 class="admin-modal-title">Admin Login</h2>
+        <p class="admin-modal-sub">Sachin C &middot; Portfolio Manager</p>
+      </div>
+
+      <!-- Error box -->
+      <div class="admin-error-box" id="adminErrorBox">
+        <span>⚠</span> <span id="adminErrorMsg">Invalid credentials</span>
+      </div>
+
+      <!-- Form -->
+      <form id="adminLoginForm" autocomplete="off" novalidate>
+        <div class="admin-form-group">
+          <label class="admin-label" for="adminUsername">Username</label>
+          <input type="text" id="adminUsername" class="admin-input"
+                 placeholder="Enter username" autocomplete="username" required />
+        </div>
+        <div class="admin-form-group">
+          <label class="admin-label" for="adminPassword">Password</label>
+          <div class="admin-pwd-wrap">
+            <input type="password" id="adminPassword" class="admin-input"
+                   placeholder="Enter password" autocomplete="current-password" required />
+            <button type="button" class="admin-pwd-toggle" id="adminPwdToggle" aria-label="Show password">👁</button>
+          </div>
+        </div>
+        <button type="submit" class="admin-submit-btn" id="adminSubmitBtn">
+          <span id="adminSubmitText">🔐 Login to Admin Panel</span>
+        </button>
+      </form>
+
+      <div class="admin-modal-footer-note">
+        Secured with JWT &bull; Spring Boot Backend
+      </div>
+    </div>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+services:
+  # ── Spring Boot Backend ────────────────────────────────────────────
+  - type: web
+    name: sachin-portfolio-api
+    runtime: java
+    plan: free
+
+    # Build using Maven
+    buildCommand: mvn clean package -DskipTests
+    startCommand: java -Dspring.profiles.active=prod -jar target/portfolio-backend-1.0.0.jar
+
+    # Environment variables — set values in Render Dashboard
+    envVars:
+      - key: SPRING_PROFILES_ACTIVE
+        value: prod
+      - key: PORT
+        value: 8080
+      - key: DB_URL
+        sync: false         # Set in Render Dashboard → Environment
+      - key: DB_USERNAME
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true # Render auto-generates a secure random value
+      - key: CORS_ORIGINS
+        value: https://sachinchellapandi45-spec.github.io

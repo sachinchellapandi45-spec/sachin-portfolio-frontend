@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Visitors — Sachin Admin</title><meta name="robots" content="noindex,nofollow"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/admin.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+<div id="pageLoader" class="page-loader"><div class="loader-spin"></div></div>
+<div class="admin-layout">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand"><div class="brand-logo">CS</div><div class="brand-info"><div class="brand-name">Portfolio Admin</div><div class="brand-role">Sachin C</div></div></div>
+    <nav class="sidebar-nav">
+      <div class="nav-section-label">Main</div>
+      <a href="dashboard.html" class="nav-item"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>Dashboard</a>
+      <a href="visitors.html" class="nav-item active"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Visitors</a>
+      <a href="contacts.html" class="nav-item"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Messages</a>
+      <div class="nav-section-label" style="margin-top:1rem">Content</div>
+      <a href="projects.html" class="nav-item"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>Projects</a>
+      <a href="skills.html" class="nav-item"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Skills</a>
+      <div class="nav-section-label" style="margin-top:1rem">Portfolio</div>
+      <a href="../index.html" target="_blank" class="nav-item"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View Portfolio</a>
+    </nav>
+    <div class="sidebar-footer"><div class="sidebar-user"><div class="user-avatar">SC</div><div><div class="user-name" id="sidebarUsername">Admin</div><div class="user-role">● Admin</div></div></div><button class="btn-logout" id="logoutBtn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>Logout</button></div>
+  </aside>
+
+  <main class="main-content">
+    <div class="topbar">
+      <div class="topbar-left"><button class="hamburger-btn" id="hamburgerBtn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button><span class="page-title">Visitor Analytics</span></div>
+      <div class="topbar-right"><div class="topbar-badge"><div class="status-dot"></div> Live</div></div>
+    </div>
+    <div class="page-content">
+      <!-- Mini Stats -->
+      <div class="stats-grid" style="grid-template-columns:repeat(4,1fr)">
+        <div class="stat-card" style="--card-gradient:linear-gradient(135deg,#00d4ff,#6366f1)"><div class="stat-card-header"><div class="stat-icon">👁</div></div><div class="stat-value" id="vTotal">—</div><div class="stat-label">Total Visits</div></div>
+        <div class="stat-card" style="--card-gradient:linear-gradient(135deg,#10f59e,#00d4ff)"><div class="stat-card-header"><div class="stat-icon">📅</div></div><div class="stat-value" id="vToday">—</div><div class="stat-label">Today</div></div>
+        <div class="stat-card" style="--card-gradient:linear-gradient(135deg,#a855f7,#6366f1)"><div class="stat-card-header"><div class="stat-icon">📆</div></div><div class="stat-value" id="vWeek">—</div><div class="stat-label">This Week</div></div>
+        <div class="stat-card" style="--card-gradient:linear-gradient(135deg,#fbbf24,#f87171)"><div class="stat-card-header"><div class="stat-icon">🔑</div></div><div class="stat-value" id="vUnique">—</div><div class="stat-label">Unique IPs</div></div>
+      </div>
+      <!-- Charts -->
+      <div class="grid-2">
+        <div class="card"><div class="card-header"><span class="card-title">📈 Daily Visitors (30 days)</span></div><div class="card-body"><div class="chart-container"><canvas id="lineChart"></canvas></div></div></div>
+        <div class="card"><div class="card-header"><span class="card-title">🖥 Devices</span></div><div class="card-body"><div class="chart-container"><canvas id="deviceChart"></canvas></div></div></div>
+      </div>
+      <!-- Browser + Recent -->
+      <div class="grid-2">
+        <div class="card"><div class="card-header"><span class="card-title">🌐 Browsers</span></div><div class="card-body" id="browserBars" style="padding:1.25rem"></div></div>
+        <div class="card"><div class="card-header"><span class="card-title">🕒 Recent Visits</span></div>
+          <div class="table-wrapper">
+            <table><thead><tr><th>IP</th><th>Device</th><th>Browser</th><th>OS</th><th>Time</th></tr></thead>
+            <tbody id="recentVisits"><tr><td colspan="5" style="text-align:center;padding:1.5rem;color:var(--text-muted)">Loading...</td></tr></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="../config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/visitors.js"></script>
+</body>
+</html>
